@@ -11,102 +11,106 @@
             theme: {
                 extend: {
                     colors: {
-                        teagreen: '#86AB84',
-                        teagreenlight: '#D5E2D5',
-                        offwhite: '#FAF9F6',
-                        softbeige: '#F5F5F0',
+                        // Mise à jour selon ta nouvelle charte
+                        'brand-ecru': '#f0e3d3',      /* Fond principal */
+                        'brand-sand': '#ddbea9',      /* Sections secondaires / Hero */
+                        'brand-terracotta': '#c58c6e', /* Accents / Call to action */
+                        'brand-sage': '#b8b7a3',      /* Détails / Hover */
+                        'brand-olive': '#6b705c',     /* Texte contrasté / Titres */
                     },
                     fontFamily: {
                         sans: ['Satoshi', 'sans-serif'],
                     },
                     borderRadius: {
-                        'custom': '24px', /* Arrondi accentué pour le style premium */
+                        'custom': '24px',
                     }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #FAF9F6; color: #1A1A1A; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        body { 
+            background-color: #f0e3d3; /* brand-ecru */
+            color: #6b705c;           /* brand-olive */
+            -webkit-font-smoothing: antialiased; 
+            overflow-x: hidden; 
+        }
         * { font-style: normal !important; }
         
-        /* Ajustement dynamique de la photo hero */
         .hero-display { 
             width: 100%; 
             max-height: 70vh; 
             object-fit: contain; 
-            border-radius: 24px; /* Bords arrondis format full */
+            border-radius: 24px; 
         }
 
-        /* Animation fluide */
         .fade-in { animation: fadeIn 1.2s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Zoom sur produit */
         .img-zoom { transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1); }
         .img-container:hover .img-zoom { transform: scale(1.04); }
     </style>
 </head>
 <body class="font-sans">
 
-    <nav class="fixed w-full z-50 px-6 py-6 lg:px-16 flex justify-between items-center bg-offwhite/90 backdrop-blur-md border-b border-gray-100">
+    <nav class="fixed w-full z-50 px-6 py-6 lg:px-16 flex justify-between items-center bg-brand-ecru/90 backdrop-blur-md border-b border-brand-sand/30">
         <div class="w-20 lg:w-24">
             <img src="assets/logo.png" alt="uutsy" class="w-full">
         </div>
-        <ul class="flex space-x-6 lg:space-x-12 text-[9px] lg:text-[10px] uppercase tracking-[0.2em] lg:tracking-[0.3em] font-bold text-gray-800">
-            <li><a href="#" class="hover:text-teagreen transition">collection</a></li>
-            <li><a href="#" class="hidden sm:block hover:text-teagreen transition">about</a></li>
-            <li><a href="#" class="hover:text-teagreen transition">contact</a></li>
+        <ul class="flex space-x-6 lg:space-x-12 text-[9px] lg:text-[10px] uppercase tracking-[0.2em] lg:tracking-[0.3em] font-bold text-brand-olive">
+            <li><a href="#" class="hover:text-brand-terracotta transition">collection</a></li>
+            <li><a href="#" class="hidden sm:block hover:text-brand-terracotta transition">about</a></li>
+            <li><a href="#" class="hover:text-brand-terracotta transition">contact</a></li>
         </ul>
     </nav>
 
-    <section class="pt-32 lg:pt-48 pb-16 px-6 lg:px-16 bg-teagreenlight">
+    <section class="pt-32 lg:pt-48 pb-16 px-6 lg:px-16 bg-brand-sand/40">
         <div class="container mx-auto">
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
                 <div class="w-full lg:w-5/12 fade-in order-2 lg:order-1">
-                    <span class="text-teagreen font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">new collection</span>
-                    <h1 class="text-4xl sm:text-5xl lg:text-7xl font-light leading-tight mb-6 lg:mb-8 lowercase tracking-tighter">
-                        feline <br><span class="text-black">harmony.</span>
+                    <span class="text-brand-terracotta font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">new collection</span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-7xl font-light leading-tight mb-6 lg:mb-8 lowercase tracking-tighter text-brand-olive">
+                        feline <br><span class="text-brand-terracotta">harmony.</span>
                     </h1>
-                    <p class="text-gray-500 max-w-sm font-light leading-relaxed lowercase text-sm lg:text-base">
+                    <p class="text-brand-olive/80 max-w-sm font-light leading-relaxed lowercase text-sm lg:text-base">
                         pure shapes designed for the modern home and the well-being of your companion.
                     </p>
                 </div>
                 
                 <div class="w-full lg:w-7/12 fade-in order-1 lg:order-2" style="animation-delay: 0.2s;">
-                    <img src="assets/hero.png" alt="uutsy hero" class="hero-display shadow-sm">
+                    <img src="assets/hero.png" alt="uutsy hero" class="hero-display">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 lg:py-32 px-6 lg:px-16 bg-white">
+    <section class="py-24 lg:py-32 px-6 lg:px-16 bg-brand-ecru">
         <div class="container mx-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
                 <div class="img-container">
-                    <div class="overflow-hidden rounded-custom mb-6 bg-softbeige aspect-square">
+                    <div class="overflow-hidden rounded-custom mb-6 bg-brand-sand aspect-square">
                         <img src="assets/product 1.png" alt="the curve" class="w-full h-full object-cover img-zoom">
                     </div>
-                    <h3 class="text-sm font-bold tracking-widest mb-2 lowercase">the curve</h3>
-                    <p class="text-[11px] text-gray-400 leading-relaxed tracking-wider lowercase max-w-xs">
+                    <h3 class="text-sm font-bold tracking-widest mb-2 lowercase text-brand-olive">the curve</h3>
+                    <p class="text-[11px] text-brand-olive/60 leading-relaxed tracking-wider lowercase max-w-xs">
                         a sculptural reversible scratching surface crafted from high-density fiber.
                     </p>
                 </div>
                 <div class="img-container">
-                    <div class="overflow-hidden rounded-custom mb-6 bg-softbeige aspect-square">
+                    <div class="overflow-hidden rounded-custom mb-6 bg-brand-sand aspect-square">
                         <img src="assets/product 2.png" alt="the sofa" class="w-full h-full object-cover img-zoom">
                     </div>
-                    <h3 class="text-sm font-bold tracking-widest mb-2 lowercase">the sofa</h3>
-                    <p class="text-[11px] text-gray-400 leading-relaxed tracking-wider lowercase max-w-xs">
+                    <h3 class="text-sm font-bold tracking-widest mb-2 lowercase text-brand-olive">the sofa</h3>
+                    <p class="text-[11px] text-brand-olive/60 leading-relaxed tracking-wider lowercase max-w-xs">
                         minimalist sofa style scratcher for ultimate feline serenity.
                     </p>
                 </div>
                 <div class="img-container sm:col-span-2 lg:col-span-1">
-                    <div class="overflow-hidden rounded-custom mb-6 bg-softbeige aspect-square">
+                    <div class="overflow-hidden rounded-custom mb-6 bg-brand-sand aspect-square">
                         <img src="assets/product 3.png" alt="the dog" class="w-full h-full object-cover img-zoom">
                     </div>
-                    <h3 class="text-sm font-bold tracking-widest mb-2 lowercase">the dog</h3>
-                    <p class="text-[11px] text-gray-400 leading-relaxed tracking-wider lowercase max-w-xs">
+                    <h3 class="text-sm font-bold tracking-widest mb-2 lowercase text-brand-olive">the dog</h3>
+                    <p class="text-[11px] text-brand-olive/60 leading-relaxed tracking-wider lowercase max-w-xs">
                         funny dog style scratcher designed to blend seamlessly into contemporary interiors.
                     </p>
                 </div>
@@ -114,41 +118,36 @@
         </div>
     </section>
 
-    <section class="py-24 lg:py-32 bg-teagreenlight text-base">
+    <section class="py-24 lg:py-32 bg-brand-sage text-brand-ecru">
         <div class="container mx-auto px-6 lg:px-16">
             <div class="flex flex-col lg:flex-row gap-16 items-center">
                 <div class="w-full lg:w-1/2 grid grid-cols-2 gap-4 lg:gap-6">
-                    <img src="assets/quality 1.png" alt="quality 1" class="w-full aspect-square object-cover rounded-custom shadow-lg">
-                    <img src="assets/quality 2.png" alt="quality 2" class="w-full aspect-square object-cover rounded-custom shadow-lg">
+                    <img src="assets/quality 1.png" alt="quality 1" class="w-full aspect-square object-cover rounded-custom">
+                    <img src="assets/quality 2.png" alt="quality 2" class="w-full aspect-square object-cover rounded-custom">
                 </div>
                 <div class="w-full lg:w-1/2 lg:pl-12">
                     <h2 class="text-3xl lg:text-4xl font-light mb-6 lg:mb-8 lowercase tracking-tight">crafted for permanence.</h2>
-                    <p class="text-base/80 text-base lg:text-lg font-light leading-relaxed mb-8 lowercase">
+                    <p class="text-base/90 lg:text-lg font-light leading-relaxed mb-8 lowercase">
                         our philosophy is rooted in silence and quality. every uutsy piece is a tribute to design and honest materials.
                     </p>
-                    <div class="w-16 h-px bg-white/40"></div>
+                    <div class="w-16 h-px bg-brand-ecru/40"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 px-6 lg:px-16 border-t border-gray-100 bg-white">
+    <footer class="py-12 px-6 lg:px-16 border-t border-brand-sand/20 bg-brand-ecru">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-            <div class="w-16 opacity-20">
-                <img src="assets/logo.png" alt="uutsy" class="w-full brightness-0">
+            <div class="w-16 opacity-40">
+                <img src="assets/logo.png" alt="uutsy" class="w-full grayscale brightness-50">
             </div>
-            <div class="flex space-x-8 text-[9px] uppercase tracking-[0.2em] font-bold text-gray-400">
-                <a href="#" class="hover:text-teagreen transition">instagram</a>
-                <a href="#" class="hover:text-teagreen transition">pinterest</a>
+            <div class="flex space-x-8 text-[9px] uppercase tracking-[0.2em] font-bold text-brand-olive/60">
+                <a href="#" class="hover:text-brand-terracotta transition">instagram</a>
+                <a href="#" class="hover:text-brand-terracotta transition">pinterest</a>
             </div>
-            <p class="text-[9px] uppercase tracking-[0.3em] text-gray-300">© 2024 uutsy studio</p>
+            <p class="text-[9px] uppercase tracking-[0.3em] text-brand-sage">© 2024 uutsy studio</p>
         </div>
     </footer>
 
 </body>
-
 </html>
-
-
-
-
