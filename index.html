@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>uutsy | the sofa scratcher | pre-launch</title>
+    <title>uutsy | feline harmony | re-imagined cat sofa & lounge</title>
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400,300&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -11,11 +11,11 @@
             theme: {
                 extend: {
                     colors: {
-                        'brand-ecru': '#f0e3d3',      /* Fond principal */
-                        'brand-sand': '#ddbea9',      /* Sections secondaires / Hero */
-                        'brand-terracotta': '#c58c6e', /* Accents / Call to action */
-                        'brand-sage': '#b8b7a3',      /* Détails / Hover */
-                        'brand-olive': '#6b705c',     /* Texte contrasté / Titres */
+                        'brand-ecru': '#f0e3d3',      /* Main background - Ecru */
+                        'brand-sand': '#ddbea9',      /* Section backgrounds, Hero form - Sand */
+                        'brand-terracotta': '#c58c6e', /* Accents, Titles - Terracotta */
+                        'brand-sage': '#b8b7a3',      /* Details, Hover, Wood section background - Sage */
+                        'brand-olive': '#6b705c',     /* Main body text, Contrast text - Olive */
                     },
                     fontFamily: {
                         sans: ['Satoshi', 'sans-serif'],
@@ -66,11 +66,11 @@
 
     <nav class="fixed w-full z-50 px-6 py-5 lg:px-16 flex justify-between items-center bg-brand-ecru/90 backdrop-blur-md border-b border-brand-sand/10">
         <div class="w-20 lg:w-24">
-            <img src="assets/logo.png" alt="uutsy" class="w-full">
+            <img src="assets/logo.png" alt="uutsy logo" class="w-full">
         </div>
         <ul class="flex space-x-6 lg:space-x-12 text-[9px] lg:text-[10px] uppercase tracking-[0.2em] lg:tracking-[0.3em] font-bold text-brand-olive">
-            <li><a href="#product" class="hover:text-brand-terracotta transition">the product</a></li>
-            <li><a href="#story" class="hidden sm:block hover:text-brand-terracotta transition">story</a></li>
+            <li><a href="#features" class="hover:text-brand-terracotta transition">features</a></li>
+            <li><a href="#wood" class="hidden sm:block hover:text-brand-terracotta transition">wood finish</a></li>
             <li><a href="#notify" class="hover:text-brand-terracotta transition">join waitlist</a></li>
         </ul>
     </nav>
@@ -79,16 +79,16 @@
         <div class="container mx-auto">
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
                 <div class="w-full lg:w-5/12 fade-in-up order-2 lg:order-1">
-                    <span class="text-brand-terracotta font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">coming soon / next launch</span>
-                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-light leading-tight mb-6 lowercase tracking-tighter text-brand-olive">
-                        the sofa <br><span class="text-brand-terracotta">scratcher.</span>
+                    <span class="text-brand-terracotta font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">pre-launch notify list</span>
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-light leading-tight mb-8 lg:mb-10 lowercase tracking-tighter text-brand-olive">
+                        re-imagine the <span class="italic text-brand-terracotta">sofa couch.</span>
                     </h1>
-                    <p class="text-brand-olive max-w-sm font-light leading-relaxed lowercase text-sm lg:text-base mb-8">
-                        architectural protection for your interior, ultimate therapeutic comfort for your companion. engineered to blend seamlessly, designed to save your furniture.
+                    <p class="text-brand-olive max-w-sm font-normal leading-relaxed lowercase text-base lg:text-lg mb-8">
+                        The ultimate 2-in-1 cat sofa and lounge bed. Redirect natural instincts, save your furniture, and provide therapeutic full-body comfort in a design that blends with your interior.
                     </p>
 
                     <div id="notify" class="max-w-md">
-                        <form action="https://formspree.io/f/mjgzbara" method="POST" class="flex flex-col sm:flex-row gap-3">
+                        <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" class="flex flex-col sm:flex-row gap-3">
                             <input 
                                 type="email" 
                                 name="email" 
@@ -103,73 +103,97 @@
                                 notify me
                             </button>
                         </form>
-                        <p class="text-[10px] text-brand-olive/50 mt-3 tracking-wide lowercase">join the list to receive private launch access and early-bird pricing.</p>
+                        <p class="text-[10px] text-brand-olive/50 mt-3 tracking-wide lowercase">join the list to receive private launch access and early-bird pricing for your modern home's must-have.</p>
                     </div>
 
                 </div>
                 
                 <div class="w-full lg:w-7/12 fade-in order-1 lg:order-2" style="animation-delay: 0.3s;">
-                    <img src="assets/hero.png" alt="uutsy sofa scratcher" class="hero-display shadow-sm">
+                    <img src="assets/hero.png" alt="uutsy sofa couch collection detail shot" class="hero-display shadow-sm">
+                    <p class="text-center text-xs text-brand-olive/50 mt-4 lowercase">(detailed shots of couch components below)</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="product" class="py-24 lg:py-32 px-6 lg:px-16 bg-brand-ecru">
+    <section id="features" class="py-24 lg:py-32 px-6 lg:px-16 bg-brand-ecru">
         <div class="container mx-auto">
-            <h2 class="text-2xl font-light lowercase tracking-wider text-brand-terracotta mb-16 text-center lg:text-left">essential protection. feline peace.</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <h2 class="text-2xl font-light lowercase tracking-wider text-brand-terracotta mb-16 text-center lg:text-left">Sofa Couch Components: Architectural details of your companion's favorite new spot.</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
+                
                 <div class="img-container group">
-                    <div class="overflow-hidden rounded-custom mb-6 bg-brand-sand aspect-[4/3] flex items-center justify-center p-8">
-                        <img src="assets/product 1.png" alt="sofa scratcher details" class="w-full h-full object-contain img-zoom">
+                    <div class="overflow-hidden rounded-custom mb-6 bg-brand-sand aspect-square flex items-center justify-center p-8">
+                        <img src="assets/product 1.png" alt="uutsy sofa couch backrest detail" class="w-full object-contain img-zoom">
                     </div>
-                </div>
-                <div class="space-y-6 max-w-lg">
-                    <h3 class="text-xl font-bold tracking-widest lowercase text-brand-olive">invisible integration</h3>
-                    <p class="text-sm text-brand-olive/80 leading-relaxed tracking-wider lowercase">
-                        crafted specifically to shield vulnerable sofa corners without sacrificing your interior design logic. our structural, high-density fibers mimic natural textures that cats instinctively prefer over fabric structures.
+                    <h3 class="text-lg font-medium tracking-wide mb-2 lowercase text-brand-olive">2-in-1 Lounge Design with Backrest</h3>
+                    <p class="text-base text-brand-olive leading-relaxed tracking-wider lowercase max-w-xs transition font-normal group-hover:text-brand-olive">
+                        Perfect for full-body stretch, nap, and curl-up spots. A dedicated mini-couch with an integrated backrest lets them scratch, stretch, and nap, all without leaving their favorite spot.
                     </p>
-                    <ul class="text-xs space-y-2 uppercase tracking-widest text-brand-terracotta font-medium pt-4">
-                        <li>• ultra-stable weighted base</li>
-                        <li>• premium organic components</li>
-                        <li>• ergonomic structural angles</li>
-                    </ul>
                 </div>
+
+                <div class="img-container group">
+                    <div class="overflow-hidden rounded-custom mb-6 bg-brand-sand aspect-square flex items-center justify-center p-8">
+                        <img src="assets/product 2.png" alt="uutsy sofa couch side walls and secure bed" class="w-full object-contain img-zoom">
+                    </div>
+                    <h3 class="text-lg font-medium tracking-wide mb-2 lowercase text-brand-olive">Secure Walled Mini-Couch Shape</h3>
+                    <p class="text-base text-brand-olive leading-relaxed tracking-wider lowercase max-w-xs transition font-normal group-hover:text-brand-olive">
+                        Satisfies the feline need for serenity and safe sleep. The structural daybed design with protective side-walls provides a sense of security and keeps debris contained for a cleaner home.
+                    </p>
+                </div>
+
+                <div class="img-container group sm:col-span-2 lg:col-span-1">
+                    <div class="overflow-hidden rounded-custom mb-6 bg-brand-sand aspect-square flex items-center justify-center p-8">
+                        <img src="assets/product 3.png" alt="uutsy sofa couch structural angles and durable core" class="w-full object-contain img-zoom">
+                    </div>
+                    <h3 class="text-lg font-medium tracking-wide mb-2 lowercase text-brand-olive">Premium High-Density Corrugated Core</h3>
+                    <p class="text-base text-brand-olive leading-relaxed tracking-wider lowercase max-w-xs transition font-normal group-hover:text-brand-olive">
+                        lasts 3x longer than standard scratchers. Tightly compressed cardboard layers withstand intense daily clawing without flattening. Satisfies natural instincts and prevents anxiety.
+                    </p>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section class="py-24 lg:py-32 px-6 lg:px-16 bg-brand-sand/20">
-        <div class="container mx-auto flex flex-col lg:flex-row-reverse gap-16 items-center">
-            <div class="w-full lg:w-1/2 rounded-custom overflow-hidden shadow-sm aspect-[4/3]">
-                <img src="assets/hero 9.png" alt="uutsy origins" class="w-full h-full object-cover">
+    <section id="wood" class="py-24 lg:py-32 px-6 lg:px-16 bg-brand-sage border-t border-brand-ecru/10 overflow-hidden">
+        <div class="container mx-auto flex flex-col lg:flex-row gap-16 items-center">
+            
+            <div class="w-full lg:w-1/2 grid grid-cols-2 gap-4 lg:gap-6 scale-105">
+                <img src="assets/quality 1.png" alt="quality 1 detail" class="w-full aspect-square object-cover rounded-custom shadow-xl">
+                <img src="assets/quality 2.png" alt="quality 2 detail" class="w-full aspect-square object-cover rounded-custom shadow-xl">
             </div>
-            <div class="w-full lg:w-1/2 lg:pr-12">
-                <span class="text-brand-terracotta font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">roots of well-being</span>
-                <h2 class="text-4xl lg:text-5xl font-light mb-8 lowercase tracking-tight">born from a need for silence.</h2>
-                <p class="text-base/90 lg:text-lg font-light leading-relaxed mb-10 lowercase">
-                    uutsy was founded in pursuit of feline peace within contemporary homes. We realized that furniture should not only blend seamlessly into your interior, but also reduce the common environmental stressors that affect our companions daily. Nature, silence, design.
+
+            <div class="w-full lg:w-1/2 lg:pl-12">
+                <span class="text-brand-terracotta font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">noble materials. designer forms.</span>
+                <h2 class="text-4xl lg:text-5xl font-light mb-8 lowercase tracking-tight text-white">born from a need for silence.</h2>
+                <p class="text-base lg:text-lg font-normal leading-relaxed mb-10 lowercase text-white">
+                    <span class="font-medium text-brand-terracotta">Designer Wood-Finish Frame: STYLE THAT FITS ANY HOME DECOR</span>
+                    Unlike cheap plastic scratchers, the uusty couch features solid natural wood-finish side panels that keep the structure stable and look like real furniture. We realized that furniture should not only blend seamlessly into your interior, but also reduce common environmental stressors. Clean lines and a neutral tone blend seamlessly into modern, Scandinavian and minimalist interiors — a cat scratcher you won't want to hide.
                 </p>
-                <div class="w-20 h-px bg-brand-terracotta"></div>
+                <div class="w-20 h-px bg-white/30"></div>
             </div>
+            
         </div>
     </section>
 
-    <section id="story" class="py-24 lg:py-32 bg-brand-sage text-brand-ecru overflow-hidden">
-        <div class="container mx-auto px-6 lg:px-16">
-            <div class="flex flex-col lg:flex-row gap-16 items-center">
-                <div class="w-full lg:w-1/2 grid grid-cols-2 gap-4 lg:gap-6 scale-105">
-                    <img src="assets/quality 1.png" alt="quality 1" class="w-full aspect-square object-cover rounded-custom shadow-xl">
-                    <img src="assets/quality 2.png" alt="quality 2" class="w-full aspect-square object-cover rounded-custom shadow-xl">
-                </div>
-                <div class="w-full lg:w-1/2 lg:pl-12">
-                    <h2 class="text-4xl lg:text-5xl font-light mb-8 lowercase tracking-tight">crafted for permanence.</h2>
-                    <p class="text-white/80 text-base lg:text-lg font-light leading-relaxed mb-12 max-w-md uppercase tracking-wide">
-                        Noble materials. Sculptural forms. A silent dedication to the bond between home and inhabitant. Pure cardboard, wood decoration.
-                    </p>
-                    <div class="h-px w-24 bg-white/30"></div>
-                </div>
+    <section class="py-24 lg:py-32 px-6 lg:px-16 bg-brand-ecru border-t border-brand-sand/10">
+        <div class="container mx-auto flex flex-col lg:flex-row-reverse gap-16 items-center">
+            
+            <div class="w-full lg:w-1/2 grid grid-cols-2 gap-4 lg:gap-6 scale-105">
+                <img src="assets/quality 1.png" alt="quality 1 cardboard detail" class="w-full aspect-square object-cover rounded-custom shadow-xl">
+                <img src="assets/quality 2.png" alt="quality 2 cardboard detail" class="w-full aspect-square object-cover rounded-custom shadow-xl">
             </div>
+
+            <div class="w-full lg:w-1/2 lg:pr-12 text-left">
+                <span class="text-brand-terracotta font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">nobility in detail</span>
+                <h2 class="text-2xl font-light lowercase tracking-wider text-brand-terracotta mb-8">high-density corrugated core. pure satisfaction.</h2>
+                <p class="text-base text-brand-olive leading-relaxed tracking-wider lowercase max-w-lg font-normal group-hover:text-brand-olive">
+                    <span class="font-medium text-brand-terracotta">lasts 3x longer than standard scratchers</span>
+                    A structural dedication to the form that satisfies natural instincts. uutsy uses only tightly compressed cardboard layers that withstand intense daily clawing without flattening or falling apart. The pure, sustainable fibers induce calm through satisfaction and prevent furniture damage from anxiety. Breatheable construction prevents odor buildup. safe, natural material with no dyes. Pure forms. Pure relaxation.
+                </p>
+                <div class="w-20 h-px bg-brand-terracotta mt-8"></div>
+            </div>
+
         </div>
     </section>
 
@@ -179,37 +203,33 @@
             <h2 class="text-2xl lg:text-3xl font-light lowercase tracking-wider text-brand-olive mb-16 max-w-xl mx-auto">real moments of feline calm from our community.</h2>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="ugc-photo rounded-custom overflow-hidden aspect-[3/4] shadow-sm">
-                    <img src="assets/UGC 1.png" alt="happy cat 1" class="w-full h-full object-cover">
+                
+                <div class="ugc-photo rounded-custom overflow-hidden aspect-[9/16] shadow-sm">
+                    <img src="assets/UGC 1.png" alt="happy cat 1 on sofa couch" class="w-full h-full object-cover">
                 </div>
-                <div class="ugc-photo rounded-custom overflow-hidden aspect-[3/4] shadow-sm lg:mt-10">
-                    <img src="assets/UGC 2.png" alt="happy cat 2" class="w-full h-full object-cover">
+
+                <div class="ugc-photo rounded-custom overflow-hidden aspect-[9/16] shadow-sm lg:mt-10">
+                    <img src="assets/UGC 2.png" alt="happy cat 2 on sofa couch" class="w-full h-full object-cover">
                 </div>
-                <div class="ugc-photo rounded-custom overflow-hidden aspect-[3/4] shadow-sm">
-                    <img src="assets/UGC 3.png" alt="happy cat 3" class="w-full h-full object-cover">
+
+                <div class="ugc-photo rounded-custom overflow-hidden aspect-[9/16] shadow-sm">
+                    <img src="assets/UGC 3.png" alt="happy cat 3 on sofa couch" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-16 px-6 lg:px-16 border-t border-brand-sand/10 bg-brand-ecru">
+    <footer id="contact" class="py-16 px-6 lg:px-16 border-t border-brand-sand/10 bg-brand-ecru">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
             <div class="w-16 opacity-40 grayscale brightness-50">
-                <img src="assets/logo.png" alt="uutsy" class="w-full">
+                <img src="assets/logo.png" alt="uutsy studio logo" class="w-full">
             </div>
-            
-            <div class="flex items-center space-x-8 text-[9px] uppercase tracking-[0.2em] font-bold text-brand-olive/60">
-                <a href="https://www.instagram.com/uutsy_shop/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-terracotta transition flex items-center gap-1.5">
-                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                    instagram
-                </a>
-                <a href="https://www.tiktok.com/@uutsy_shop" target="_blank" rel="noopener noreferrer" class="hover:text-brand-terracotta transition flex items-center gap-1.5">
-                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31.01 2.61.03 3.91.05.08 1.53.64 2.92 1.71 4.01.99.98 2.29 1.55 3.69 1.73v3.9c-1.39-.02-2.73-.44-3.87-1.21-.69-.47-1.29-1.07-1.76-1.77V14.3c0 1.94-.49 3.71-1.47 5.16-1.31 1.93-3.41 3.19-5.83 3.42-2.9.27-5.69-.91-7.23-3.32-1.21-1.89-1.51-4.22-.84-6.39.69-2.22 2.45-3.99 4.7-4.66.86-.25 1.76-.34 2.65-.26V11.2c-.39-.05-.79-.04-1.18.02-1.03.17-1.92.78-2.42 1.69-.48.87-.51 1.93-.07 2.83.45.92 1.35 1.57 2.37 1.69.21.02.43.03.64.01 1.25-.09 2.29-1.02 2.46-2.27.03-.23.04-.46.04-.69V0h.15z"/></svg>
-                    tiktok
-                </a>
+            <div class="flex space-x-10 text-[11px] uppercase tracking-[0.2em] font-bold text-brand-olive">
+                <a href="#" class="hover:text-brand-terracotta transition">instagram</a>
+                <a href="#" class="hover:text-brand-terracotta transition">pinterest</a>
+                <a href="#" class="hover:text-brand-terracotta transition">journal</a>
             </div>
-            
-            <p class="text-[9px] uppercase tracking-[0.3em] text-brand-sage">© 2026 uutsy studio</p>
+            <p class="text-[11px] uppercase tracking-[0.3em] text-brand-olive">© 2024 uutsy studio. re-imagine calm.</p>
         </div>
     </footer>
 
