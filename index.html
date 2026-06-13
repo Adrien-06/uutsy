@@ -157,18 +157,6 @@
         }
         nav a:hover::after { width: 100%; }
 
-        /* ── Floating badge on hero ── */
-        .hero-badge {
-            animation: float 3.5s ease-in-out infinite;
-        }
-        .hero-badge-alt {
-            animation: float 3.5s ease-in-out 1.5s infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50%       { transform: translateY(-6px); }
-        }
-
         /* ── Story images parallax ── */
         .quality-img {
             transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
@@ -219,34 +207,18 @@
 
                 <!-- Copy -->
                 <div class="w-full lg:w-5/12 fade-in-up order-2 lg:order-1">
-                    <span class="text-brand-terracotta font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">feline calm naturally</span>
+                    <span class="text-brand-terracotta font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">arriving soon — limited first release</span>
                     <h1 class="text-5xl sm:text-6xl lg:text-7xl font-light leading-tight mb-8 lg:mb-10 lowercase tracking-tighter text-brand-olive">
                         the sofa <br><span class="text-brand-terracotta">scratcher lounge.</span>
                     </h1>
-                    <p class="text-brand-olive max-w-sm font-normal leading-relaxed lowercase text-base lg:text-lg mb-8">
+                    <p class="text-brand-olive max-w-sm font-normal leading-relaxed lowercase text-base lg:text-lg mb-6">
                         A scratcher built like furniture. A bed shaped like a sofa.
                         High-density corrugated cardboard, natural wood panels, clean lines.
                         Everything your cat needs — nothing your home doesn't want.
-                        Launching soon. Join the waitlist for early access.
                     </p>
-
-                    <!-- Micro stats -->
-                    <div class="flex gap-8 mb-10">
-                        <div>
-                            <span class="text-2xl font-bold text-brand-olive" data-counter="3" data-suffix="x">0x</span>
-                            <p class="text-[10px] uppercase tracking-[0.2em] text-brand-olive/60 mt-0.5">more durable</p>
-                        </div>
-                        <div class="w-px bg-brand-sand/60"></div>
-                        <div>
-                            <span class="text-2xl font-bold text-brand-olive" data-counter="2" data-suffix="-in-1">0-in-1</span>
-                            <p class="text-[10px] uppercase tracking-[0.2em] text-brand-olive/60 mt-0.5">design</p>
-                        </div>
-                        <div class="w-px bg-brand-sand/60"></div>
-                        <div>
-                            <span class="text-2xl font-bold text-brand-olive" data-counter="100" data-suffix="%" data-prefix="">0%</span>
-                            <p class="text-[10px] uppercase tracking-[0.2em] text-brand-olive/60 mt-0.5">natural</p>
-                        </div>
-                    </div>
+                    <p class="text-brand-olive/70 max-w-sm font-normal leading-relaxed lowercase text-sm mb-10 uppercase tracking-wider">
+                        first units drop soon. waitlist members get early access &amp; exclusive launch pricing.
+                    </p>
 
                     <div id="notify" class="max-w-md">
                         <form id="waitlist-form" class="flex flex-col sm:flex-row gap-3">
@@ -300,21 +272,8 @@
                     </script>
                 </div>
 
-                <!-- Hero image with floating badges -->
+                <!-- Hero image -->
                 <div class="w-full lg:w-7/12 fade-in order-1 lg:order-2 relative" style="animation-delay: 0.3s;" id="hero-img-wrap">
-
-                    <!-- Floating badge 1 -->
-                    <div class="hero-badge absolute top-6 left-4 lg:left-8 bg-white/90 backdrop-blur-sm rounded-custom px-4 py-2.5 shadow-sm border border-brand-sand/20 z-10">
-                        <p class="text-[9px] uppercase tracking-[0.2em] font-bold text-brand-terracotta">lasts 3× longer</p>
-                        <p class="text-[8px] text-brand-olive/60 tracking-wide">vs standard scratchers</p>
-                    </div>
-
-                    <!-- Floating badge 2 -->
-                    <div class="hero-badge-alt absolute bottom-8 right-4 lg:right-8 bg-brand-olive/90 backdrop-blur-sm rounded-custom px-4 py-2.5 shadow-sm z-10">
-                        <p class="text-[9px] uppercase tracking-[0.2em] font-bold text-brand-ecru">design-first</p>
-                        <p class="text-[8px] text-brand-ecru/60 tracking-wide">fits any interior</p>
-                    </div>
-
                     <img src="assets/hero.png" alt="uutsy premium cat sofa scratcher bed" class="hero-display shadow-sm" id="hero-img">
                 </div>
 
@@ -560,32 +519,6 @@
 
         revealEls.forEach(el => observer.observe(el));
         lineEls.forEach(el => observer.observe(el));
-
-        /* Animated counters */
-        function animateCounter(el) {
-            const target = parseInt(el.dataset.counter, 10);
-            const suffix = el.dataset.suffix || '';
-            const duration = 1200;
-            const start = performance.now();
-            const update = (now) => {
-                const progress = Math.min((now - start) / duration, 1);
-                const eased = 1 - Math.pow(1 - progress, 3);
-                el.textContent = Math.round(eased * target) + suffix;
-                if (progress < 1) requestAnimationFrame(update);
-            };
-            requestAnimationFrame(update);
-        }
-
-        const counterEls = document.querySelectorAll('[data-counter]');
-        const counterObs = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounter(entry.target);
-                    counterObs.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        counterEls.forEach(el => counterObs.observe(el));
 
         /* Hero mouse parallax */
         const heroWrap = document.getElementById('hero-img-wrap');
