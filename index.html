@@ -11,11 +11,11 @@
             theme: {
                 extend: {
                     colors: {
-                        'brand-ecru': '#f0e3d3',      /* Fond principal */
-                        'brand-sand': '#ddbea9',      /* Sections secondaires / Hero */
-                        'brand-terracotta': '#c58c6e', /* Accents / Call to action */
-                        'brand-sage': '#b8b7a3',      /* Détails / Hover */
-                        'brand-olive': '#6b705c',     /* Texte contrasté / Titres */
+                        'brand-ecru': '#f0e3d3',
+                        'brand-sand': '#ddbea9',
+                        'brand-terracotta': '#c58c6e',
+                        'brand-sage': '#b8b7a3',
+                        'brand-olive': '#6b705c',
                     },
                     fontFamily: {
                         sans: ['Satoshi', 'sans-serif'],
@@ -29,42 +29,174 @@
     </script>
     <style>
         html { scroll-behavior: smooth; }
-        body { 
-            background-color: #f0e3d3; /* brand-ecru */
-            color: #6b705c;           /* brand-olive */
-            -webkit-font-smoothing: antialiased; 
-            overflow-x: hidden; 
+        body {
+            background-color: #f0e3d3;
+            color: #6b705c;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
-        /* Désactivation stricte de l'italique */
         * { font-style: normal !important; }
-        
-        /* Ajustement dynamique de la photo hero */
-        .hero-display { 
-            width: 100%; 
-            max-height: 70vh; 
-            object-fit: contain; 
-            border-radius: 24px; 
+
+        /* ── Progress bar ── */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: #c58c6e;
+            width: 0%;
+            z-index: 100;
+            transition: width 0.1s linear;
         }
 
-        /* Animations fluides */
-        .fade-in { animation: fadeIn 1.5s cubic-bezier(0.2, 1, 0.3, 1) forwards; }
-        .fade-in-up { animation: fadeInUp 1s cubic-bezier(0.2, 1, 0.3, 1) forwards; }
-        
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        /* ── Nav shrink on scroll ── */
+        nav { transition: padding 0.4s cubic-bezier(0.2, 1, 0.3, 1), box-shadow 0.4s; }
+        nav.scrolled { padding-top: 0.85rem; padding-bottom: 0.85rem; box-shadow: 0 1px 24px rgba(107,112,92,0.07); }
 
-        /* Zoom sur produit */
+        /* ── Scroll-reveal base ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.75s cubic-bezier(0.2, 1, 0.3, 1), transform 0.75s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .reveal.from-left  { transform: translateX(-32px); }
+        .reveal.from-right { transform: translateX(32px); }
+        .reveal.visible    { opacity: 1; transform: translate(0, 0); }
+
+        /* ── Stagger delays ── */
+        .stagger-1 { transition-delay: 0.05s; }
+        .stagger-2 { transition-delay: 0.15s; }
+        .stagger-3 { transition-delay: 0.25s; }
+        .stagger-4 { transition-delay: 0.35s; }
+
+        /* ── Hero image parallax ── */
+        .hero-display {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 24px;
+            transition: transform 0.15s ease-out;
+        }
+
+        /* ── Product image zoom ── */
         .img-zoom { transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1); }
-        .img-container:hover .img-zoom { transform: scale(1.04); }
-        
-        /* Effet de parallaxe léger sur les images UGC */
-        .ugc-photo { transition: transform 0.5s ease-out; }
-        .ugc-photo:hover { transform: translateY(-5px); }
+        .img-container:hover .img-zoom { transform: scale(1.05); }
+
+        /* ── Feature cards ── */
+        .feature-card {
+            transition: transform 0.45s cubic-bezier(0.2, 1, 0.3, 1),
+                        box-shadow 0.45s cubic-bezier(0.2, 1, 0.3, 1);
+            border-radius: 24px;
+            border: 1px solid transparent;
+        }
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 48px rgba(107,112,92,0.10);
+            border-color: rgba(197,140,110,0.18);
+        }
+        .feature-card .feature-icon-wrap {
+            transition: background 0.4s;
+        }
+        .feature-card:hover .feature-icon-wrap {
+            background-color: rgba(197,140,110,0.14);
+        }
+
+        /* ── Marquee ── */
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 22s linear infinite;
+        }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+        .marquee-track:hover { animation-play-state: paused; }
+
+        /* ── UGC hover ── */
+        .ugc-photo {
+            transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1),
+                        box-shadow 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .ugc-photo:hover {
+            transform: translateY(-8px) scale(1.015);
+            box-shadow: 0 24px 48px rgba(107,112,92,0.13);
+        }
+
+        /* ── Testimonial cards ── */
+        .testimonial-card {
+            transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1),
+                        box-shadow 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(107,112,92,0.09);
+        }
+
+        /* ── CTA button pulse ── */
+        @keyframes pulse-terracotta {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(197,140,110,0.35); }
+            50%       { box-shadow: 0 0 0 8px rgba(197,140,110,0); }
+        }
+        #waitlist-btn { animation: pulse-terracotta 2.4s ease-in-out infinite; }
+        #waitlist-btn:hover { animation: none; }
+
+        /* ── Animated underline on nav links ── */
+        nav a {
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #c58c6e;
+            transition: width 0.3s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        nav a:hover::after { width: 100%; }
+
+        /* ── Floating badge on hero ── */
+        .hero-badge {
+            animation: float 3.5s ease-in-out infinite;
+        }
+        .hero-badge-alt {
+            animation: float 3.5s ease-in-out 1.5s infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(-6px); }
+        }
+
+        /* ── Story images parallax ── */
+        .quality-img {
+            transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .quality-img:hover { transform: scale(1.03); }
+
+        /* ── Hero initial animation ── */
+        .fade-in     { animation: fadeIn 1.5s cubic-bezier(0.2, 1, 0.3, 1) forwards; }
+        .fade-in-up  { animation: fadeInUp 1s cubic-bezier(0.2, 1, 0.3, 1) forwards; }
+        @keyframes fadeIn    { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeInUp  { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ── Divider line animation ── */
+        .line-grow {
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 1s cubic-bezier(0.2, 1, 0.3, 1) 0.3s;
+        }
+        .line-grow.visible { transform: scaleX(1); }
     </style>
 </head>
 <body class="font-sans">
 
-    <nav class="fixed w-full z-50 px-6 py-5 lg:px-16 flex justify-between items-center bg-brand-ecru/90 backdrop-blur-md border-b border-brand-sand/10">
+    <!-- Reading progress -->
+    <div id="progress-bar"></div>
+
+    <!-- ── NAVIGATION ── -->
+    <nav id="main-nav" class="fixed w-full z-50 px-6 py-5 lg:px-16 flex justify-between items-center bg-brand-ecru/90 backdrop-blur-md border-b border-brand-sand/10">
         <div class="w-20 lg:w-24">
             <img src="assets/logo.png" alt="uutsy" class="w-full">
         </div>
@@ -75,9 +207,17 @@
         </ul>
     </nav>
 
-    <section class="pt-32 lg:pt-48 pb-16 px-6 lg:px-16 bg-brand-sand/30">
-        <div class="container mx-auto">
+    <!-- ── HERO ── -->
+    <section class="pt-32 lg:pt-48 pb-16 px-6 lg:px-16 bg-brand-sand/30 relative overflow-hidden">
+        <!-- Subtle decorative gradient blob -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div style="position:absolute;top:-10%;right:-5%;width:55%;height:80%;background:radial-gradient(ellipse at 60% 30%, rgba(197,140,110,0.10) 0%, transparent 65%);"></div>
+        </div>
+
+        <div class="container mx-auto relative">
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
+
+                <!-- Copy -->
                 <div class="w-full lg:w-5/12 fade-in-up order-2 lg:order-1">
                     <span class="text-brand-terracotta font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">feline calm naturally</span>
                     <h1 class="text-5xl sm:text-6xl lg:text-7xl font-light leading-tight mb-8 lg:mb-10 lowercase tracking-tighter text-brand-olive">
@@ -89,6 +229,24 @@
                         Everything your cat needs — nothing your home doesn't want.
                         Launching soon. Join the waitlist for early access.
                     </p>
+
+                    <!-- Micro stats -->
+                    <div class="flex gap-8 mb-10">
+                        <div>
+                            <span class="text-2xl font-bold text-brand-olive" data-counter="3" data-suffix="x">0x</span>
+                            <p class="text-[10px] uppercase tracking-[0.2em] text-brand-olive/60 mt-0.5">more durable</p>
+                        </div>
+                        <div class="w-px bg-brand-sand/60"></div>
+                        <div>
+                            <span class="text-2xl font-bold text-brand-olive" data-counter="2" data-suffix="-in-1">0-in-1</span>
+                            <p class="text-[10px] uppercase tracking-[0.2em] text-brand-olive/60 mt-0.5">design</p>
+                        </div>
+                        <div class="w-px bg-brand-sand/60"></div>
+                        <div>
+                            <span class="text-2xl font-bold text-brand-olive" data-counter="100" data-suffix="%" data-prefix="">0%</span>
+                            <p class="text-[10px] uppercase tracking-[0.2em] text-brand-olive/60 mt-0.5">natural</p>
+                        </div>
+                    </div>
 
                     <div id="notify" class="max-w-md">
                         <form id="waitlist-form" class="flex flex-col sm:flex-row gap-3">
@@ -140,23 +298,70 @@
                             }
                         });
                     </script>
+                </div>
 
+                <!-- Hero image with floating badges -->
+                <div class="w-full lg:w-7/12 fade-in order-1 lg:order-2 relative" style="animation-delay: 0.3s;" id="hero-img-wrap">
+
+                    <!-- Floating badge 1 -->
+                    <div class="hero-badge absolute top-6 left-4 lg:left-8 bg-white/90 backdrop-blur-sm rounded-custom px-4 py-2.5 shadow-sm border border-brand-sand/20 z-10">
+                        <p class="text-[9px] uppercase tracking-[0.2em] font-bold text-brand-terracotta">lasts 3× longer</p>
+                        <p class="text-[8px] text-brand-olive/60 tracking-wide">vs standard scratchers</p>
+                    </div>
+
+                    <!-- Floating badge 2 -->
+                    <div class="hero-badge-alt absolute bottom-8 right-4 lg:right-8 bg-brand-olive/90 backdrop-blur-sm rounded-custom px-4 py-2.5 shadow-sm z-10">
+                        <p class="text-[9px] uppercase tracking-[0.2em] font-bold text-brand-ecru">design-first</p>
+                        <p class="text-[8px] text-brand-ecru/60 tracking-wide">fits any interior</p>
+                    </div>
+
+                    <img src="assets/hero.png" alt="uutsy premium cat sofa scratcher bed" class="hero-display shadow-sm" id="hero-img">
                 </div>
-                
-                <div class="w-full lg:w-7/12 fade-in order-1 lg:order-2" style="animation-delay: 0.3s;">
-                    <img src="assets/hero.png" alt="uutsy premium cat sofa scratcher bed" class="hero-display shadow-sm">
-                </div>
+
             </div>
         </div>
     </section>
 
+    <!-- ── MARQUEE STRIP ── -->
+    <div class="py-4 bg-brand-olive overflow-hidden border-y border-brand-olive">
+        <div class="marquee-track select-none">
+            <!-- duplicated for seamless loop -->
+            <span class="text-[9px] uppercase tracking-[0.35em] font-bold text-brand-ecru/70 mx-10">crafted for calm</span>
+            <span class="text-brand-terracotta mx-4">·</span>
+            <span class="text-[9px] uppercase tracking-[0.35em] font-bold text-brand-ecru/70 mx-10">natural materials</span>
+            <span class="text-brand-terracotta mx-4">·</span>
+            <span class="text-[9px] uppercase tracking-[0.35em] font-bold text-brand-ecru/70 mx-10">minimal design</span>
+            <span class="text-brand-terracotta mx-4">·</span>
+            <span class="text-[9px] uppercase tracking-[0.35em] font-bold text-brand-ecru/70 mx-10">feline harmony</span>
+            <span class="text-brand-terracotta mx-4">·</span>
+            <span class="text-[9px] uppercase tracking-[0.35em] font-bold text-brand-ecru/70 mx-10">made to last</span>
+            <span class="text-brand-terracotta mx-4">·</span>
+            <span class="text-[9px] uppercase tracking-[0.35em] font-bold text-brand-ecru/70 mx-10">dye-free · safe</span>
+            <span class="text-brand-terracotta mx-4">·</span>
+            <!-- duplicate -->
+            <span class="text-[9px] uppercase tracking-[0.35em] font-bold text-brand-ecru/70 mx-10">crafted for calm</span>
+            <span class="text-brand-terracotta mx-4">·</span>
+            <span class="text-[9px] uppercase tracking-[0.35em] font-bold text-brand-ecru/70 mx-10">natural materials</span>
+            <span class="text-brand-terracotta mx-4">·</span>
+            <span class="text-[9px] uppercase tracking-[0.35em] font-bold text-brand-ecru/70 mx-10">minimal design</span>
+            <span class="text-brand-terracotta mx-4">·</span>
+            <span class="text-[9px] uppercase tracking-[0.35em] font-bold text-brand-ecru/70 mx-10">feline harmony</span>
+            <span class="text-brand-terracotta mx-4">·</span>
+            <span class="text-[9px] uppercase tracking-[0.35em] font-bold text-brand-ecru/70 mx-10">made to last</span>
+            <span class="text-brand-terracotta mx-4">·</span>
+            <span class="text-[9px] uppercase tracking-[0.35em] font-bold text-brand-ecru/70 mx-10">dye-free · safe</span>
+            <span class="text-brand-terracotta mx-4">·</span>
+        </div>
+    </div>
+
+    <!-- ── FEATURES ── -->
     <section id="features" class="py-24 lg:py-32 px-6 lg:px-16 bg-brand-ecru">
         <div class="container mx-auto">
-            <h2 class="text-2xl font-light lowercase tracking-wider text-brand-terracotta mb-16 text-center lg:text-left">essential tools for feline peace.</h2>
+            <h2 class="reveal text-2xl font-light lowercase tracking-wider text-brand-terracotta mb-16 text-center lg:text-left">essential tools for feline peace.</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
-                
-                <div class="img-container group">
-                    <div class="overflow-hidden rounded-custom mb-6 bg-brand-sand aspect-square flex items-center justify-center p-8">
+
+                <div class="feature-card img-container group p-6 reveal stagger-1">
+                    <div class="feature-icon-wrap overflow-hidden rounded-custom mb-6 bg-brand-sand aspect-square flex items-center justify-center p-8">
                         <img src="assets/star_1.png" alt="2-in-1 lounge bed design" class="w-full object-contain img-zoom">
                     </div>
                     <h3 class="text-base font-bold tracking-widest mb-2 lowercase text-brand-olive">2-in-1 scratcher & lounge bed</h3>
@@ -165,8 +370,8 @@
                     </p>
                 </div>
 
-                <div class="img-container group">
-                    <div class="overflow-hidden rounded-custom mb-6 bg-brand-sand aspect-square flex items-center justify-center p-8">
+                <div class="feature-card img-container group p-6 reveal stagger-2">
+                    <div class="feature-icon-wrap overflow-hidden rounded-custom mb-6 bg-brand-sand aspect-square flex items-center justify-center p-8">
                         <img src="assets/star_2.png" alt="premium high density corrugated scratch board" class="w-full object-contain img-zoom">
                     </div>
                     <h3 class="text-base font-bold tracking-widest mb-2 lowercase text-brand-olive">high-density corrugated cardboard</h3>
@@ -175,8 +380,8 @@
                     </p>
                 </div>
 
-                <div class="img-container group sm:col-span-2 lg:col-span-1">
-                    <div class="overflow-hidden rounded-custom mb-6 bg-brand-sand aspect-square flex items-center justify-center p-8">
+                <div class="feature-card img-container group p-6 reveal stagger-3 sm:col-span-2 lg:col-span-1">
+                    <div class="feature-icon-wrap overflow-hidden rounded-custom mb-6 bg-brand-sand aspect-square flex items-center justify-center p-8">
                         <img src="assets/star_3.png" alt="designer wood finish frame" class="w-full object-contain img-zoom">
                     </div>
                     <h3 class="text-base font-bold tracking-widest mb-2 lowercase text-brand-olive">designer wood-finish frame</h3>
@@ -189,48 +394,52 @@
         </div>
     </section>
 
+    <!-- ── STORY (crafted for permanence) ── -->
     <section id="story" class="py-24 lg:py-32 bg-brand-sage text-brand-ecru overflow-hidden">
         <div class="container mx-auto px-6 lg:px-16">
             <div class="flex flex-col lg:flex-row gap-16 items-center">
                 <div class="w-full lg:w-1/2 grid grid-cols-2 gap-4 lg:gap-6 scale-105">
-                    <img src="assets/quality%201.png" alt="quality 1" class="w-full aspect-square object-cover rounded-custom shadow-xl">
-                    <img src="assets/quality%202.png" alt="quality 2" class="w-full aspect-square object-cover rounded-custom shadow-xl">
+                    <img src="assets/quality%201.png" alt="quality 1" class="quality-img w-full aspect-square object-cover rounded-custom shadow-xl reveal from-left">
+                    <img src="assets/quality%202.png" alt="quality 2" class="quality-img w-full aspect-square object-cover rounded-custom shadow-xl reveal from-left stagger-2">
                 </div>
-                <div class="w-full lg:w-1/2 lg:pl-12">
+                <div class="w-full lg:w-1/2 lg:pl-12 reveal from-right">
                     <h2 class="text-4xl lg:text-5xl font-light mb-8 lowercase tracking-tight">crafted for permanence.</h2>
                     <p class="text-white text-base lg:text-lg font-normal leading-relaxed mb-12 max-w-md uppercase tracking-wide">
                         Durable materials. Sculptural forms. A silent dedication to the bond between home and inhabitant. Pure cardboard, wood decoration.
                     </p>
-                    <div class="h-px w-24 bg-white/30"></div>
+                    <div class="line-grow h-px w-24 bg-white/30"></div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ── BORN FROM SILENCE ── -->
     <section class="py-24 lg:py-32 px-6 lg:px-16 bg-brand-sand/20">
         <div class="container mx-auto flex flex-col lg:flex-row gap-16 items-center">
-            <div class="w-full lg:w-1/2 lg:pr-12">
+            <div class="w-full lg:w-1/2 lg:pr-12 reveal from-left">
                 <span class="text-brand-terracotta font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">roots of well-being</span>
                 <h2 class="text-4xl lg:text-5xl font-light mb-8 lowercase tracking-tight">born from a need for silence.</h2>
                 <p class="text-brand-olive text-base lg:text-lg font-normal leading-relaxed mb-10 lowercase">
                     uutsy was founded in pursuit of feline peace within contemporary homes. We realized that furniture should not only blend seamlessly into your interior, but also reduce the common environmental stressors that affect our companions daily. Nature, silence, design.
                 </p>
-                <div class="w-20 h-px bg-brand-terracotta"></div>
+                <div class="line-grow w-20 h-px bg-brand-terracotta"></div>
             </div>
-            <div class="w-full lg:w-1/2 rounded-custom overflow-hidden shadow-sm aspect-[4/3]">
-                <img src="assets/hero%209.png" alt="uutsy origins lifestyle picture" class="w-full h-full object-cover">
+            <div class="w-full lg:w-1/2 rounded-custom overflow-hidden shadow-sm aspect-[4/3] reveal from-right">
+                <img src="assets/hero%209.png" alt="uutsy origins lifestyle picture" class="w-full h-full object-cover quality-img">
             </div>
         </div>
     </section>
 
+    <!-- ── SOCIAL PROOF & UGC ── -->
     <section class="py-24 lg:py-32 px-6 lg:px-16 bg-brand-ecru border-t border-brand-sand/10">
         <div class="container mx-auto text-center">
-            <span class="text-brand-terracotta font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">harmony approved</span>
-            <h2 class="text-2xl lg:text-3xl font-light lowercase tracking-wider text-brand-olive mb-16 max-w-xl mx-auto">real moments of feline calm from our community.</h2>
-            
+            <span class="reveal text-brand-terracotta font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">harmony approved</span>
+            <h2 class="reveal stagger-1 text-2xl lg:text-3xl font-light lowercase tracking-wider text-brand-olive mb-16 max-w-xl mx-auto">real moments of feline calm from our community.</h2>
+
+            <!-- Testimonials -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left max-w-5xl mx-auto mb-20">
-                
-                <div class="bg-white p-8 rounded-custom shadow-sm border border-brand-sand/10 flex flex-col justify-between">
+
+                <div class="testimonial-card bg-white p-8 rounded-custom shadow-sm border border-brand-sand/10 flex flex-col justify-between reveal stagger-1">
                     <div>
                         <div class="flex space-x-1 mb-4 text-brand-terracotta">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -246,7 +455,7 @@
                     <span class="text-xs font-bold uppercase tracking-widest text-brand-terracotta">— claire m.</span>
                 </div>
 
-                <div class="bg-white p-8 rounded-custom shadow-sm border border-brand-sand/10 flex flex-col justify-between">
+                <div class="testimonial-card bg-white p-8 rounded-custom shadow-sm border border-brand-sand/10 flex flex-col justify-between reveal stagger-2">
                     <div>
                         <div class="flex space-x-1 mb-4 text-brand-terracotta">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -262,7 +471,7 @@
                     <span class="text-xs font-bold uppercase tracking-widest text-brand-terracotta">— Anna p.</span>
                 </div>
 
-                <div class="bg-white p-8 rounded-custom shadow-sm border border-brand-sand/10 flex flex-col justify-between">
+                <div class="testimonial-card bg-white p-8 rounded-custom shadow-sm border border-brand-sand/10 flex flex-col justify-between reveal stagger-3">
                     <div>
                         <div class="flex space-x-1 mb-4 text-brand-terracotta">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -279,18 +488,19 @@
                 </div>
 
             </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
-                
-                <div class="ugc-photo rounded-custom overflow-hidden aspect-[9/16] shadow-sm">
+
+            <!-- UGC photos — staggered offset grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 items-end max-w-5xl mx-auto">
+
+                <div class="ugc-photo rounded-custom overflow-hidden aspect-[9/16] shadow-sm reveal stagger-1" style="margin-top: 0;">
                     <img src="assets/UGC%201.png" alt="happy cat 1 lounge" class="w-full h-full object-cover">
                 </div>
-                
-                <div class="ugc-photo rounded-custom overflow-hidden aspect-[9/16] shadow-sm">
+
+                <div class="ugc-photo rounded-custom overflow-hidden aspect-[9/16] shadow-sm reveal stagger-2" style="margin-top: -3rem;">
                     <img src="assets/UGC%202.png" alt="happy cat 2 lounge" class="w-full h-full object-cover">
                 </div>
-                
-                <div class="ugc-photo rounded-custom overflow-hidden aspect-[9/16] shadow-sm">
+
+                <div class="ugc-photo rounded-custom overflow-hidden aspect-[9/16] shadow-sm reveal stagger-3" style="margin-top: -1.5rem;">
                     <img src="assets/UGC%203.png" alt="happy cat 3 lounge" class="w-full h-full object-cover">
                 </div>
 
@@ -298,12 +508,13 @@
         </div>
     </section>
 
-    <footer class="py-16 px-6 lg:px-16 border-t border-brand-sand/10 bg-brand-ecru">
+    <!-- ── FOOTER ── -->
+    <footer class="py-16 px-6 lg:px-16 border-t border-brand-sand/10 bg-brand-ecru reveal">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
             <div class="w-16 opacity-40 grayscale brightness-50">
                 <img src="assets/logo.png" alt="uutsy logo" class="w-full">
             </div>
-            
+
             <div class="flex items-center space-x-8 text-[11px] uppercase tracking-[0.2em] font-bold text-brand-olive">
                 <a href="https://www.instagram.com/uutsy_official/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-terracotta transition flex items-center gap-1.5">
                     <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
@@ -314,10 +525,85 @@
                     tiktok
                 </a>
             </div>
-            
-            <p class="text-[11px] uppercase tracking-[0.3em] text-brand-olive">© 2026 uutsy </p>
+
+            <p class="text-[11px] uppercase tracking-[0.3em] text-brand-olive">© 2026 uutsy</p>
         </div>
     </footer>
+
+    <!-- ── SCRIPTS ── -->
+    <script>
+        /* Progress bar */
+        const progressBar = document.getElementById('progress-bar');
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const total = document.documentElement.scrollHeight - window.innerHeight;
+            progressBar.style.width = (scrolled / total * 100) + '%';
+        }, { passive: true });
+
+        /* Nav shrink */
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+
+        /* Scroll reveal — IntersectionObserver */
+        const revealEls = document.querySelectorAll('.reveal');
+        const lineEls = document.querySelectorAll('.line-grow');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        revealEls.forEach(el => observer.observe(el));
+        lineEls.forEach(el => observer.observe(el));
+
+        /* Animated counters */
+        function animateCounter(el) {
+            const target = parseInt(el.dataset.counter, 10);
+            const suffix = el.dataset.suffix || '';
+            const duration = 1200;
+            const start = performance.now();
+            const update = (now) => {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.round(eased * target) + suffix;
+                if (progress < 1) requestAnimationFrame(update);
+            };
+            requestAnimationFrame(update);
+        }
+
+        const counterEls = document.querySelectorAll('[data-counter]');
+        const counterObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        counterEls.forEach(el => counterObs.observe(el));
+
+        /* Hero mouse parallax */
+        const heroWrap = document.getElementById('hero-img-wrap');
+        const heroImg = document.getElementById('hero-img');
+        if (heroWrap && heroImg) {
+            heroWrap.addEventListener('mousemove', (e) => {
+                const rect = heroWrap.getBoundingClientRect();
+                const cx = rect.left + rect.width / 2;
+                const cy = rect.top + rect.height / 2;
+                const dx = (e.clientX - cx) / rect.width;
+                const dy = (e.clientY - cy) / rect.height;
+                heroImg.style.transform = `translate(${dx * 10}px, ${dy * 8}px)`;
+            });
+            heroWrap.addEventListener('mouseleave', () => {
+                heroImg.style.transform = '';
+            });
+        }
+    </script>
 
 </body>
 </html>
