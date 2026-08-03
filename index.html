@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>uutsy | 2-in-1 cat sofa scratcher lounge | feline furniture</title>
-    <meta name="description" content="uutsy is a premium 2-in-1 cat scratcher and lounge bed. high-density corrugated cardboard, natural wood frame, minimal design that fits any interior. join the waitlist.">
+    <title>uutsy | 2-in-1 cat sofa scratcher lounge | now live on amazon</title>
+    <meta name="description" content="uutsy is a premium 2-in-1 cat scratcher and lounge bed. high-density corrugated cardboard, natural wood frame, minimal design that fits any interior. now available on amazon.">
     <link rel="canonical" href="https://uutsy.com/">
-    <meta property="og:title" content="uutsy — the cat sofa scratcher lounge">
-    <meta property="og:description" content="a scratcher built like furniture. a bed shaped like a sofa. high-density cardboard, natural wood panels, clean lines. launching soon.">
+    <meta property="og:title" content="uutsy — the cat sofa scratcher lounge — now on amazon">
+    <meta property="og:description" content="a scratcher built like furniture. a bed shaped like a sofa. high-density cardboard, natural wood panels, clean lines. available now on amazon.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://uutsy.com/">
     <meta property="og:image" content="https://uutsy.com/assets/hero.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="uutsy — the cat sofa scratcher lounge">
-    <meta name="twitter:description" content="a scratcher built like furniture. a bed shaped like a sofa. launching soon.">
+    <meta name="twitter:title" content="uutsy — the cat sofa scratcher lounge — now on amazon">
+    <meta name="twitter:description" content="a scratcher built like furniture. a bed shaped like a sofa. available now on amazon.">
     <meta name="twitter:image" content="https://uutsy.com/assets/hero.png">
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/png" href="favicon.png" sizes="any">
@@ -45,9 +45,10 @@
           "category": "Pet Furniture",
           "offers": {
             "@type": "Offer",
-            "availability": "https://schema.org/PreOrder",
-            "priceCurrency": "EUR",
-            "seller": { "@type": "Organization", "name": "uutsy" }
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "USD",
+            "url": "https://www.amazon.com/dp/B0GTFRN3P6",
+            "seller": { "@type": "Organization", "name": "Amazon" }
           }
         },
         {
@@ -204,6 +205,7 @@
         nav a {
             position: relative;
         }
+        nav a.btn-cta::after { display: none; }
         nav a::after {
             content: '';
             position: absolute;
@@ -251,7 +253,11 @@
             <li><a href="#features" class="hover:text-brand-terracotta transition">features</a></li>
             <li><a href="#story" class="hidden sm:block hover:text-brand-terracotta transition">story</a></li>
             <li><a href="blog/" class="hidden sm:block hover:text-brand-terracotta transition">journal</a></li>
-            <li><a href="#notify" class="hover:text-brand-terracotta transition">join waitlist</a></li>
+            <li>
+                <a href="https://www.amazon.com/dp/B0GTFRN3P6" target="_blank" rel="noopener noreferrer" class="btn-cta px-4 py-2 lg:px-5 lg:py-2.5 rounded-full bg-brand-terracotta text-brand-ecru hover:bg-brand-olive transition">
+                    buy on amazon
+                </a>
+            </li>
         </ul>
     </nav>
 
@@ -267,7 +273,7 @@
 
                 <!-- Copy -->
                 <div class="w-full lg:w-5/12 fade-in-up order-2 lg:order-1">
-                    <span class="text-brand-terracotta font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">arriving soon — limited first release</span>
+                    <span class="text-brand-terracotta font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">now live — available on amazon</span>
                     <h1 class="text-5xl sm:text-6xl lg:text-7xl font-light leading-tight mb-8 lg:mb-10 lowercase tracking-tighter text-brand-olive">
                         the sofa <br><span class="text-brand-terracotta">scratcher lounge.</span>
                     </h1>
@@ -277,10 +283,25 @@
                         Everything your cat needs — nothing your home doesn't want.
                     </p>
                     <p class="text-brand-olive/70 max-w-sm font-normal leading-relaxed lowercase text-sm mb-10 uppercase tracking-wider">
-                        first units drop soon. waitlist members get early access &amp; exclusive launch pricing.
+                        ready to ship. order today and get it delivered by amazon.
                     </p>
 
-                    <div id="notify" class="max-w-md">
+                    <div class="max-w-md">
+                        <a
+                            href="https://www.amazon.com/dp/B0GTFRN3P6"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            id="waitlist-btn"
+                            class="group w-full flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-brand-terracotta text-brand-ecru text-sm uppercase tracking-widest font-bold hover:bg-brand-olive shadow-sm transition duration-300"
+                        >
+                            buy now on amazon
+                            <svg class="w-4 h-4 transition group-hover:translate-x-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                        </a>
+                        <p class="text-[10px] text-brand-olive/60 mt-3 tracking-wide lowercase text-center">available now, ships via amazon prime.</p>
+                    </div>
+
+                    <div id="notify" class="max-w-md mt-10 pt-8 border-t border-brand-sand/40">
+                        <p class="text-[10px] text-brand-olive/60 mb-3 tracking-wide lowercase uppercase font-bold tracking-[0.2em]">not ready to buy yet?</p>
                         <form id="waitlist-form" class="flex flex-col sm:flex-row gap-3">
                             <input
                                 type="email"
@@ -291,19 +312,19 @@
                             >
                             <button
                                 type="submit"
-                                id="waitlist-btn"
-                                class="whitespace-nowrap px-7 py-3.5 rounded-full bg-brand-terracotta text-brand-ecru text-xs uppercase tracking-widest font-bold hover:bg-brand-olive shadow-sm transition duration-300"
+                                id="waitlist-submit-btn"
+                                class="whitespace-nowrap px-7 py-3.5 rounded-full bg-white border-2 border-brand-terracotta text-brand-terracotta text-xs uppercase tracking-widest font-bold hover:bg-brand-terracotta hover:text-brand-ecru shadow-sm transition duration-300"
                             >
-                                notify me
+                                stay updated
                             </button>
                         </form>
-                        <p id="waitlist-msg" class="text-[10px] text-brand-olive/60 mt-3 tracking-wide lowercase">join the list to receive private launch access and early-bird pricing.</p>
+                        <p id="waitlist-msg" class="text-[10px] text-brand-olive/60 mt-3 tracking-wide lowercase">get restock alerts, care tips and future drop news.</p>
                     </div>
                     <script>
                         document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
                             e.preventDefault();
                             const form = e.target;
-                            const btn = document.getElementById('waitlist-btn');
+                            const btn = document.getElementById('waitlist-submit-btn');
                             const msg = document.getElementById('waitlist-msg');
                             const email = form.email.value;
                             btn.disabled = true;
@@ -326,7 +347,7 @@
                                 msg.textContent = 'something went wrong. please try again.';
                                 msg.classList.add('text-red-400');
                                 btn.disabled = false;
-                                btn.textContent = 'notify me';
+                                btn.textContent = 'stay updated';
                             }
                         });
                     </script>
@@ -548,8 +569,37 @@
         </div>
     </section>
 
+    <!-- ── FINAL CTA ── -->
+    <section class="py-20 lg:py-28 px-6 lg:px-16 bg-brand-olive text-center">
+        <div class="container mx-auto reveal">
+            <span class="text-brand-terracotta font-bold uppercase tracking-[0.4em] text-[10px] mb-4 block">now shipping</span>
+            <h2 class="text-3xl lg:text-4xl font-light lowercase tracking-tight text-brand-ecru mb-8 max-w-lg mx-auto">your cat's new favorite spot is one click away.</h2>
+            <a
+                href="https://www.amazon.com/dp/B0GTFRN3P6"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-3 px-9 py-4 rounded-full bg-brand-terracotta text-brand-ecru text-sm uppercase tracking-widest font-bold hover:bg-brand-ecru hover:text-brand-olive shadow-sm transition duration-300"
+            >
+                buy now on amazon
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ── MOBILE STICKY CTA ── -->
+    <div class="fixed bottom-0 inset-x-0 z-40 p-3 bg-brand-ecru/95 backdrop-blur-md border-t border-brand-sand/20 shadow-[0_-4px_20px_rgba(107,112,92,0.08)] sm:hidden">
+        <a
+            href="https://www.amazon.com/dp/B0GTFRN3P6"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-full bg-brand-terracotta text-brand-ecru text-xs uppercase tracking-widest font-bold shadow-sm"
+        >
+            buy now on amazon
+        </a>
+    </div>
+
     <!-- ── FOOTER ── -->
-    <footer class="py-16 px-6 lg:px-16 border-t border-brand-sand/10 bg-brand-ecru reveal">
+    <footer class="py-16 px-6 lg:px-16 pb-24 sm:pb-16 border-t border-brand-sand/10 bg-brand-ecru reveal">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
             <div class="w-16 opacity-40 grayscale brightness-50">
                 <img src="assets/logo.png" alt="uutsy logo" class="w-full" loading="lazy">
